@@ -15,7 +15,7 @@ Este é um script em Python que automatiza a organização de arquivos em um dir
 * Abra um terminal na pasta do projeto e execute o comando:
   python organizador.py
   
-* Indique qual pasta deseja oreganizar.
+* Indique qual pasta deseja organizar.
 
 Seus arquivos serão movidos para as pastas de destino corretas.
 
