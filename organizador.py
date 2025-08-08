@@ -1,9 +1,9 @@
 import os
 
 mapa_de_pastas = {
-    "jpg": "Imagens",
-    "png": "Imagens",
-    "pdf": "Documentos",
+    "jpg": "Pictures",
+    "png": "Pictures",
+    "pdf": "Documents",
     "py": "Python"
     #adc as extensoes aqui!
 }
