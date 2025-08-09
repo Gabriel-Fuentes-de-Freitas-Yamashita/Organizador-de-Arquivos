@@ -1,47 +1,57 @@
 import os
 
 mapa_de_pastas = {
-    "jpg": "Imagens",
-    "png": "Imagens",
-    "pdf": "Documentos",
-    "py": "Python"
+    "jpg": "Pictures",
+    "png": "Pictures",
+    "pdf": "Documents",
+    "py": "Python",
+    "docx": "Documents",
+    "mp4": "Videos",
+    "jpeg": "Picuteres"
     #adc as extensoes aqui!
 }
-pasta_origem = input("Digite a sua pasta a ser organizada: ")
 
-lista_de_arquivos = os.listdir(f"{pasta_origem}/")
+entrada = str
 
-print(f"Arquivos encontrados: {lista_de_arquivos}")
+while entrada != "nao" or "n": 
 
-print("\nExtensoes: ")
-for extensoes in lista_de_arquivos:
+    pasta_origem = input("Digite a sua pasta a ser organizada: ")
 
-    extensoes = extensoes.split('.')
-    extensoes = extensoes[-1]
-    print(extensoes)
+    lista_de_arquivos = os.listdir(f"{pasta_origem}/")
 
-for nome_arquivo in lista_de_arquivos:
-     
-     partes = nome_arquivo.split('.')
-     extensao = partes[-1]
-     
-     if '.' not in nome_arquivo:
-        continue
-     
-     if extensao in mapa_de_pastas:
-        pasta_destino = mapa_de_pastas[extensao]
+    print(f"Arquivos encontrados: {lista_de_arquivos}")
 
-        if not os.path.exists(pasta_destino):
-            os.mkdir(pasta_destino)
-            print(f"pasta '{pasta_destino}' criada!")
+    print("\nExtensoes: ")
+    for extensoes in lista_de_arquivos:
 
-        caminho_origem = f"{pasta_origem}/{nome_arquivo}"
-        caminho_destino = f"{pasta_destino}/{nome_arquivo}"
+        extensoes = extensoes.split('.')
+        extensoes = extensoes[-1]
+        print(extensoes)
 
-        os.rename(caminho_origem, caminho_destino)
-        print(f"Arquivo '{nome_arquivo}' movido para '{pasta_destino}'")
+    for nome_arquivo in lista_de_arquivos:
+        
+        partes = nome_arquivo.split('.')
+        extensao = partes[-1]
+        
+        if '.' not in nome_arquivo:
+            continue
+        
+        if extensao in mapa_de_pastas:
+            pasta_destino = mapa_de_pastas[extensao]
 
-     else:
-        print(f"Extensão '{extensao}' do arquivo '{nome_arquivo}' não está no mapa, arquivo não movido.")
+            if not os.path.exists(pasta_destino):
+                os.mkdir(pasta_destino)
+                print(f"pasta '{pasta_destino}' criada!")
 
-print("\nOrganização concluída!")
+            caminho_origem = f"{pasta_origem}/{nome_arquivo}"
+            caminho_destino = f"{pasta_destino}/{nome_arquivo}"
+
+            os.rename(caminho_origem, caminho_destino)
+            print(f"Arquivo '{nome_arquivo}' movido para '{pasta_destino}'")
+
+        else:
+            print(f"Extensão '{extensao}' do arquivo '{nome_arquivo}' não está no mapa, arquivo não movido.")
+
+    print("\nOrganização concluída!")
+
+    entrada = input("\nDeseja continuar organizando suas pastas?(s/n) ")
