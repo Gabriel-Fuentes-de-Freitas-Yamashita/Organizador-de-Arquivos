@@ -13,7 +13,7 @@ mapa_de_pastas = {
 
 entrada = str
 
-while entrada != "nao" or "n": 
+while entrada not in ("nao", "n"):
 
     pasta_origem = input("Digite a sua pasta a ser organizada: ")
 
